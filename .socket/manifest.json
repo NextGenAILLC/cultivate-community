@@ -1,0 +1,47 @@
+{
+  "patches": {
+    "pkg:npm/immer@8.0.1": {
+      "uuid": "9f893290-2303-4f63-b6a5-c33848e6092b",
+      "exportedAt": "Tue, 07 Apr 2026 20:39:09 GMT",
+      "files": {
+        "package/dist/immer.cjs.development.js": {
+          "beforeHash": "b23d02ba0047141b0cd623a4d1bd9de781dec60c4c4b1ea28ff34e6a1a4afeff",
+          "afterHash": "1283aea76e3316e91bdb3bb76f0f9225567ffc595679e3e1f651f676ce49b847"
+        },
+        "package/dist/immer.cjs.production.min.js": {
+          "beforeHash": "16478422027c9d10b9a8f303ed4c0a0d02401a917640000abacecff6b1161d2b",
+          "afterHash": "d51dd0af8c2587de71bcb61e3ab5b8e4a6f34558c5d9a7ef84056f9468232df9"
+        },
+        "package/dist/immer.esm.js": {
+          "beforeHash": "8cbfe6d758064a40de934b6afc05f6bffe616191481849b0d21628838498c3b8",
+          "afterHash": "a99dd3d605e965356edd1f6ea212471f21532d76073e38fafc9ef9b32f45185c"
+        },
+        "package/dist/immer.umd.development.js": {
+          "beforeHash": "5f11a49494c37678b0f7110c5e0190ae19f900ed6ee93f8934f9d2867e418df0",
+          "afterHash": "87bc07d7b8802ba493006c4e178aee584134943ad29764a1461a1def1b8069d8"
+        },
+        "package/dist/immer.umd.production.min.js": {
+          "beforeHash": "a14d5cddc247a1ade7c1ff0870394bdecce1f432d4aa90f615aa1686e9eaaec5",
+          "afterHash": "052280bb4ff715ef154158c551b4c6d1d40cb90998bbfa135ece5d02faec52d5"
+        },
+        "package/src/plugins/patches.ts": {
+          "beforeHash": "507c33c5801fa17091fc7dd1cfc06b69094e9154f1f5c9764ad53fe4149ed702",
+          "afterHash": "159d20240bea81b51327fa0ff935ef0e24048e07a052d0d30e9aab6f31c8c877"
+        }
+      },
+      "vulnerabilities": {
+        "GHSA-33f9-j839-rf8h": {
+          "cves": [
+            "CVE-2021-23436"
+          ],
+          "summary": "Prototype Pollution in immer",
+          "severity": "CRITICAL",
+          "description": "This affects the package immer before 9.0.6. A type confusion vulnerability can lead to a bypass of CVE-2020-28477 when the user-provided keys used in the path parameter are arrays. In particular, this bypass is possible because the condition `(p === \"__proto__\" || p === \"constructor\")` in `applyPatches_` returns false if `p` is `['__proto__']` (or `['constructor']`). The `===` operator (strict equality operator) returns false if the operands have different type."
+        }
+      },
+      "description": "",
+      "license": "MIT",
+      "tier": "free"
+    }
+  }
+}
